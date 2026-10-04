@@ -69,17 +69,4 @@ delhi-smog/
 └── images/
 ```
 
-### Reproduce
-
-1. Get a free NASA FIRMS key at https://firms.modaps.eosdis.nasa.gov/api/map_key and save it in `.env` as `FIRMS_MAP_KEY=...`.
-2. Download the Kaggle dataset [Air Quality Data in India](https://www.kaggle.com/datasets/rohanrao/air-quality-data-in-india) into `data/raw/kaggle/`.
-3. Run:
-
-```bash
-pip install -r requirements.txt
-python src/fetch_data.py
-python src/prepare_data.py
-jupyter nbconvert --to notebook --execute notebooks/delhi_smog_analysis.ipynb
-```
-
 *Data: CPCB via Kaggle (2015–2020), NASA FIRMS VIIRS S-NPP (2015–2025), Open-Meteo / ERA5 reanalysis, Natural Earth boundaries.*
