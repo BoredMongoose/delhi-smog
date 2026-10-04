@@ -4,6 +4,16 @@ Every November, Delhi's air becomes some of the worst in the world, and every No
 
 ![Weather-normalised PM2.5](images/03_weather_normalised.png)
 
+<!-- business:start -->
+## Business impact
+
+- **Question:** Should Delhi's anti-smog effort target Diwali firecrackers or crop fires?
+- **Key finding:** Crop fires drive about 60% of early-November PM2.5, while Diwali adds about 2% of the season's extra pollution. Over the whole winter, 84% of the pollution is Delhi's own, trapped by the weather.
+- **Recommendation:** Fund crop-residue alternatives for October–November, and year-round controls on Delhi's own sources (traffic, industry, dust) for the winter. A firecracker ban addresses one night.
+- **Estimated impact:** **~60%** of early-November PM2.5 from crop-fire smoke; Diwali adds about 2% of the season's extra pollution.
+- **Case study:** [boredmongoose.github.io/projects/delhi.html](https://boredmongoose.github.io/projects/delhi.html)
+<!-- business:end -->
+
 ## Short answer
 
 | Suspect | Verdict | Evidence |
@@ -52,6 +62,14 @@ As a **placebo test**, I fed the same model the *wrong year's* fires (same calen
 
 ![Fires by year](images/01_fires_by_year.png)
 
+<!-- next:start -->
+## Next steps
+
+1. Extend the PM2.5 data past 2020 to test whether the air improved as fires fell 94%.
+2. Use more weather grid points and station-level models.
+3. Estimate the health cost of the smoke weeks (hospital visits, lost workdays).
+<!-- next:end -->
+
 ## Tools
 
 **Python:** pandas, statsmodels (OLS, HAC standard errors), scikit-learn (gradient boosting, cross-validation) and matplotlib (including a fire-density map built from raw GeoJSON). **APIs:** NASA FIRMS, Open-Meteo. The full analysis is in [`notebooks/delhi_smog_analysis.ipynb`](notebooks/delhi_smog_analysis.ipynb).
@@ -67,6 +85,24 @@ delhi-smog/
 │   └── style.py                     # shared chart style
 ├── data/processed/                  # analysis-ready tables (CSV)
 └── images/
+```
+
+## Reproduce
+
+The analysis-ready tables in `data/processed/` and the state boundaries are included, so the notebook runs on a fresh clone:
+
+```bash
+pip install -r requirements.txt
+jupyter notebook notebooks/delhi_smog_analysis.ipynb
+```
+
+To rebuild the tables from the raw sources, two inputs need a free sign-up:
+1. A [NASA FIRMS map key](https://firms.modaps.eosdis.nasa.gov/api/map_key/), saved in a `.env` file as `FIRMS_MAP_KEY=your_key` (`.env` is git-ignored).
+2. The CPCB data from Kaggle, [Air Quality Data in India (2015 - 2020)](https://www.kaggle.com/datasets/rohanrao/air-quality-data-in-india): put `city_day.csv`, `city_hour.csv`, `station_day.csv` and `stations.csv` in `data/raw/kaggle/`.
+
+```bash
+python src/fetch_data.py      # NASA FIRMS fire detections and Open-Meteo weather -> data/raw/
+python src/prepare_data.py    # cleaning and joins -> data/processed/
 ```
 
 *Data: CPCB via Kaggle (2015–2020), NASA FIRMS VIIRS S-NPP (2015–2025), Open-Meteo / ERA5 reanalysis, Natural Earth boundaries.*
