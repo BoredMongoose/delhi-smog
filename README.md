@@ -7,8 +7,8 @@ Every November, Delhi's air becomes some of the worst in the world, and every No
 <!-- business:start -->
 ## Business impact
 
-- **Question:** Should Delhi's anti-smog effort target Diwali firecrackers or crop fires?
-- **Key finding:** Crop fires drive about 60% of early-November PM2.5, while Diwali adds about 2% of the season's extra pollution. Over the whole winter, 84% of the pollution is Delhi's own, trapped by the weather.
+- **Question:** To cut November smog, should Delhi tackle Diwali firecrackers or crop fires?
+- **Key finding:** Crop fires. They drive about 60% of early-November PM2.5, while Diwali adds about 2% of the season's extra pollution. Over the whole winter, 84% of the pollution is Delhi's own, trapped by the weather.
 - **Recommendation:** Fund crop-residue alternatives for October–November, and year-round controls on Delhi's own sources (traffic, industry, dust) for the winter. A firecracker ban addresses one night.
 - **Estimated impact:** **~60%** of early-November PM2.5 from crop-fire smoke; Diwali adds about 2% of the season's extra pollution.
 - **Case study:** [boredmongoose.github.io/projects/delhi.html](https://boredmongoose.github.io/projects/delhi.html)
